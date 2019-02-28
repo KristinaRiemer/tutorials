@@ -9,7 +9,7 @@ before_install:
   - sudo apt-get install libgdal-dev
 
 script:
-  - Rscript -e 'bookdown::render_book("index.rmd")'
+  - Rscript -e 'bookdown::render_book("index.Rmd")'
   
 deploy: 
   provider: pages
