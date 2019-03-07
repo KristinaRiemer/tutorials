@@ -1,5 +1,0 @@
-# Command Line Hyperspectral Workflow
-
-```{r}
-knitr::include_url("https://docs.google.com/document/d/1QWBUHsRql_c_q15WoFrUGRMGk0gZQ-y85y6tpd9pdNM/pub")
-```
