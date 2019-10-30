@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Accessing meteorological data | TERRA REF Tutorials</title>
   <meta name="description" content="Chapter 8 Accessing meteorological data | TERRA REF Tutorials" />
-  <meta name="generator" content="bookdown 0.13.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Accessing meteorological data | TERRA REF Tutorials" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David LeBauer and others" />
 
 
-<meta name="date" content="2019-09-04" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -131,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#technical-requirements"><i class="fa fa-check"></i><b>1.1.1</b> Technical Requirements</a></li>
 <li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#user-accounts"><i class="fa fa-check"></i><b>1.1.2</b> User Accounts and permission to access TERRA REF data</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#ways-of-acessing-data"><i class="fa fa-check"></i><b>1.2</b> Ways of Acessing Data</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#ways-of-accessing-data"><i class="fa fa-check"></i><b>1.2</b> Ways of Accessing Data</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#other-resources"><i class="fa fa-check"></i><b>1.3</b> Other Resources</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#finding-help"><i class="fa fa-check"></i><b>1.3.1</b> Finding help</a></li>
 </ul></li>
@@ -431,42 +434,38 @@ meteorological data and associated stream ids.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td>3211</td>
-<td>UA-MAC AZMET Weather Station - weather</td>
+<td>3212</td>
+<td>Irrigation Observations</td>
 </tr>
 <tr class="even">
-<td>3212</td>
-<td>UA-MAC AZMET Weather Station - irrigation</td>
+<td>46431</td>
+<td>Weather Observations (5 min bins)</td>
 </tr>
 <tr class="odd">
-<td>46431</td>
-<td>UA-MAC AZMET Weather Station - weather (5 min)</td>
-</tr>
-<tr class="even">
 <td>3208</td>
 <td>EnvironmentLogger sensor_weather_station</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>3207</td>
 <td>EnvironmentLogger sensor_par</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>748</td>
 <td>EnvironmentLogger sensor_spectrum</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>3210</td>
 <td>EnvironmentLogger sensor_co2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>4806</td>
 <td>UIUC Energy Farm SE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>4807</td>
 <td>UIUC Energy Farm CEN</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>4805</td>
 <td>UIUC Energy Farm NE</td>
 </tr>
@@ -505,7 +504,7 @@ meteorological data and associated stream ids.</p>
 <div id="download-data-using-the-command-line" class="section level3">
 <h3><span class="header-section-number">8.1.6</span> Download data using the command line</h3>
 <p>Data can be downloaded from Clowder using the command line program Curl. If the
-following is typed into the commmand line, it will download the datapoints data
+following is typed into the command line, it will download the datapoints data
 that we’re interested in as a file which we have chosen to call <code>spectra.json</code>.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="ex">curl</span> -o spectra.json -X GET https://terraref.ncsa.illinois.edu/clowder/api/geostreams/datapoints?stream_id=46431<span class="kw">&amp;</span><span class="va">since=</span>2017-01-02<span class="kw">&amp;</span><span class="va">until=</span>2017-01-31</a></code></pre></div>
 <div id="using-r" class="section level4">
@@ -608,11 +607,13 @@ newly created dataframe.</p>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
